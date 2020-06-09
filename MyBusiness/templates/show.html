@@ -1,0 +1,35 @@
+{%  extends 'main.html' %}
+{% block content %}
+<br>
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Категория: {{categ.name}}</h5>
+    </div>
+    <div class="card card-body">
+      <table class="table">
+        <tr>
+          <th>Название Товара</th>
+          <th>Цена за 1 шт</th>
+          <th>Количество</th>
+          <th>Категория</th>
+          <th>Изменить</th>
+          <th>Удалить</th>
+          <th>Продать</th>
+        </tr>
+        {% for i in showing1%}
+        <tr>
+          <td>{{i.Название}}</td>
+          <td>{{i.Стоимость}}</td>
+          <td>{{i.Количество}}</td>
+          <td>{{i.Категория}}</td>
+          <td><a class="btn btn-sm btn-info" href="{% url 'update' i.id %}">Изменить</a></td>
+          <td><a class="btn btn-sm btn-danger" href="{% url 'delete_product' i.id %}">Удалить</a></td>
+          <td><a class="btn btn-sm btn-warning" href="{% url 'sell_product' i.id %}">Продать</a></td>
+        </tr>
+        {% endfor%}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

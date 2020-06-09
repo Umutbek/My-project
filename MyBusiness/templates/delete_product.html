@@ -1,0 +1,10 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% block content%}
+  <p> Удалить товар {{del1}}?</p>
+<form method="POST" action="{% url 'delete_product' del1.id%}">
+  {% csrf_token %}
+  <a class="btn btn-info" href="{% url 'my_html' %}">Отмена</a>
+  <input type="submit" class="btn btn-danger" name="delete" value="Удалить">
+</form >
+{% endblock%}
